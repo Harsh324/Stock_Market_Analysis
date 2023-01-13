@@ -4,6 +4,6 @@ var app = express();
 
 app.listen(3000, function () {
 
-    console.log('Started application on port %d”, 5000');
+    console.log('Started application on port %d”, 3000');
 
 });
