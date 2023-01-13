@@ -1,0 +1,23 @@
+{
+  "name": "stock_market_analysis",
+  "version": "1.0.0",
+  "description": "Stock Market Analysis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Harsh324/Stock_Market_Analysis.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Harsh324/Stock_Market_Analysis/issues"
+  },
+  "homepage": "https://github.com/Harsh324/Stock_Market_Analysis#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "hbs": "^4.2.0"
+  }
+}
