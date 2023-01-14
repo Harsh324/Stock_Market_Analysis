@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<body>
+  <canvas id="myChart"></canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script>
+    var csvData = null;
+    Papa.parse("EISHERMOT.NS.csv", {
+      download: true,
+      header: true,
+      complete: function(results) {
+          csvData = results;
+          var labels = [];
+          var data = [];
+          for (var i = 0; i < csvData.data.length; i++) {
+              var date = new Date(csvData.data[i]["Date"]);
+              labels.push(date.toLocaleString("default", { month:"short" }));
+              data.push(csvData.data[i]["Open"]);
+          }
+          createChart(labels,data);
+      }
+  });
+  
+  function createChart(labels,data) {
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: "Open",
+          borderColor: "rgba(255, 99, 132, 1)",
+          backgroundColor: "rgba(255, 99, 132, 0.2)",
+          data: data
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  }
+  </script>
+  
+
+
+
+</body>
+</html>
+
+
